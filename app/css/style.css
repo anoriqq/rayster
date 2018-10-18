@@ -1,0 +1,74 @@
+html, body, #app-mount{
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  background: black;
+	overflow: hidden;
+  user-select: none;
+}
+.titleBar{
+  height: 18px;
+  width: 100%;
+  margin-top: 4px;
+  background: black;
+  -webkit-app-region: drag;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.titleBar-item{
+  height: 22px;
+  width: 28px;
+  position: relative;
+  top: -4px;
+  cursor: pointer;
+  -webkit-app-region: no-drag;
+}
+.wordmark{
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: default;
+  -webkit-app-region: drag;
+}
+video{
+  height: 100%;
+  width: 100%;
+}
+.mediaList{
+  display: flex;
+}
+#mediaFileInput{
+  display: none;
+}
+.close:hover{
+  background: rgb(255, 30, 30);
+}
+.maximize-unmaximize:hover{
+  background: rgb(80, 80, 80);
+}
+.minimize:hover{
+  background: rgb(80, 80, 80);
+}
+
+.cntroller{
+  height: 100%;
+  width: 100%;
+}
+p{
+  margin: 0 10px;
+  color: white;
+}
+.mediaChangeButton{
+  height: 80%;
+  width: 20%;
+  background: rgba(255, 255, 255, .3);
+  position: absolute;
+}
+.previous{
+  top: 10%;
+  left: 0;
+}
+.next{
+  top: 10%;
+  right: 0;
+}
