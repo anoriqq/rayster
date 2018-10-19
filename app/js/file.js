@@ -48,8 +48,16 @@ mediaFileInput.addEventListener('change', function(e){
 });
 
 /* filePath内i番目のファイルをエレメントに追加 */
+const mime = require('mime');
 function addMedia(filePath, files){
-  let MediaElem = document.createElement('video');
+  let MediaElem = null;
+
+  let mimeType = mime.getType(filePath).match(/(.+)\/.+/)[1];
+  if(mimeType == 'image'){
+    mimeType = 'img';
+  }
+  MediaElem = document.createElement(mimeType);
+
   MediaElem.setAttribute('class', 'media');
   MediaElem.src = filePath;
 
