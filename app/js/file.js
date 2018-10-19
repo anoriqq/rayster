@@ -28,7 +28,6 @@ mediaFileInput.addEventListener('change', function(e){
   /* 選択ファイルが複数のときは選択分をリストに追加､単数のときはディレクトリ内のメディアを追加､選択されていないときはスルーする */
   if(filesLength > 1){
     toggleFocusVideo();
-    filesLength = files.length;
     for(let i=0;i<filesLength;i++){
       let filePath = files[i].path;
       addMedia(filePath, i);
