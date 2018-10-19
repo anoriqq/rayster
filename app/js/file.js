@@ -48,18 +48,19 @@ mediaFileInput.addEventListener('change', function(e){
 /* filePath内i番目のファイルをエレメントに追加 */
 function addMedia(filePath, files){
   let MediaElem = document.createElement('video');
+  MediaElem.setAttribute('class', 'media');
   MediaElem.src = filePath;
 
-  /* 1つ目のvideoにfocusMediaクラスを追加 */
+  /* 1つ目のmediaにfocusMediaクラスを追加 */
   if(files[0].path == filePath){
-    MediaElem.setAttribute('class', 'focusMedia');
+    MediaElem.setAttribute('class', 'media focusMedia');
     mediaTitle.innerText = path.basename(filePath);
   }
 
   mediaList.appendChild(MediaElem);
 }
 
-/* focusMediaクラスがついたvideoタグからfocusMediaクラスを削除する関数 */
+/* focusMediaクラスがついたmediaからfocusMediaクラスを削除する関数 */
 let focusMedias = null;
 function toggleFocusMedia(){
   focusMedias = mediaList.getElementsByClassName('focusMedia');

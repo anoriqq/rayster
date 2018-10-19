@@ -30,7 +30,7 @@ html, body, #app-mount{
   cursor: default;
   -webkit-app-region: drag;
 }
-video{
+.media{
   height: 100%;
   width: 100%;
   display: none;
