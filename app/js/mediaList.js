@@ -28,5 +28,5 @@ function getFocusMedia(){
 function focusChange(focusMedia, nextMedia){
   focusMedia.classList.remove('focusMedia');
   nextMedia.classList.add('focusMedia');
-  mediaTitle.innerText = path.basename(nextMedia.src);
+  mediaTitle.innerText = decodeURIComponent(path.basename(nextMedia.src));
 }
