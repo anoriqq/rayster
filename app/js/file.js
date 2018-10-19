@@ -17,7 +17,6 @@ mediaTitle.addEventListener('click', function(){
 
 /* Inputが変更されたときに実行 */
 let mediaList = null;
-const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
 mediaList = getElemId('mediaList');
@@ -51,10 +50,6 @@ mediaFileInput.addEventListener('change', function(e){
 function addMedia(filePath, i){
   let videoElem = document.createElement('video');
   videoElem.src = filePath;
-  let md4 = crypto.createHash('md4');
-  md4.update(filePath);
-  let hash = md4.digest('hex');
-  videoElem.setAttribute('id', `video_${i}_${hash}`);
 
   /* 1つ目のvideoにfocusMediaクラスを追加 */
   if(i === 0){
