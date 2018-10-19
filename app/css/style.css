@@ -30,15 +30,17 @@ html, body, #app-mount{
   cursor: default;
   -webkit-app-region: drag;
 }
+#mediaList{
+  height: calc(100% - 22px);
+  width: 100%;
+}
 .media{
   height: 100%;
   width: 100%;
+  object-fit: contain;
   display: none;
   opacity: .2;
   transition: opacity .2s , display 0s .5s;
-}
-.mediaList{
-  display: flex;
 }
 #mediaFileInput{
   display: none;
