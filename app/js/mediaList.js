@@ -5,20 +5,28 @@ let focusMedia = null;
 
 /* 次のメディアをフォーカス */
 next.addEventListener('click', function(){
-  focusMedia = mediaList.getElementsByClassName('focusMedia')[0];
+  focusMedia = getFocusMedia();
   if(focusMedia && focusMedia.nextElementSibling){
-    focusMedia.classList.remove('focusMedia');
-    focusMedia.nextElementSibling.classList.add('focusMedia');
-    mediaTitle.innerText = path.basename(focusMedia.nextElementSibling.src);
+    focusChange(focusMedia, focusMedia.nextElementSibling);
   }
 });
 
 /* 前のメディアをフォーカス */
 previous.addEventListener('click', function(){
-  focusMedia = mediaList.getElementsByClassName('focusMedia')[0];
+  focusMedia = getFocusMedia();
   if(focusMedia && focusMedia.previousElementSibling){
-    focusMedia.classList.remove('focusMedia');
-    focusMedia.previousElementSibling.classList.add('focusMedia');
-    mediaTitle.innerText = path.basename(focusMedia.previousElementSibling.src);
+    focusChange(focusMedia, focusMedia.previousElementSibling);
   }
 });
+
+/* focusMediaを取得する関数 */
+function getFocusMedia(){
+  return mediaList.getElementsByClassName('focusMedia')[0];
+}
+
+/* focusMediaクラスを付け替える関数 */
+function focusChange(focusMedia, nextMedia){
+  focusMedia.classList.remove('focusMedia');
+  nextMedia.classList.add('focusMedia');
+  mediaTitle.innerText = path.basename(nextMedia.src);
+}
