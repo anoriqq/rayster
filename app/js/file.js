@@ -17,8 +17,10 @@ mediaTitle.addEventListener('click', function(){
 
 /* Inputが変更されたときに実行 */
 let mediaList = null;
+let medias = getElemClass('media');
 const fs = require('fs');
 const path = require('path');
+const url = require('url');
 mediaList = getElemId('mediaList');
 mediaFileInput.addEventListener('change', function(e){
   let files = e.srcElement.files;
@@ -55,6 +57,13 @@ function addMedia(filePath, files){
   if(files[0].path == filePath){
     MediaElem.setAttribute('class', 'media focusMedia');
     mediaTitle.innerText = path.basename(filePath);
+  }
+
+  /* 同じファイルが追加された場合に既存のファイルを削除 */
+  for(let i=0;i<medias.length;i++){
+    if(url.parse(medias[i].src).path.replace(/^\//, '') == filePath.replace(/\\/g, '/')){
+      mediaList.removeChild(medias[i]);
+    }
   }
 
   mediaList.appendChild(MediaElem);
