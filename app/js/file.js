@@ -30,31 +30,32 @@ mediaFileInput.addEventListener('change', function(e){
     toggleFocusMedia();
     for(let i=0;i<filesLength;i++){
       let filePath = files[i].path;
-      addMedia(filePath, i);
+      addMedia(filePath, files);
     }
   }else{
     toggleFocusMedia();
     folderPath = path.dirname(files[0].path);
-    fs.readdir(folderPath, function(err, files){
-      filesLength = files.length;
+    fs.readdir(folderPath, function(err, filesList){
+      filesLength = filesList.length;
       for(let i=0;i<filesLength;i++){
-        let filePath = folderPath + '\\' + files[i]; // ファイルパスの復元
-        addMedia(filePath, i);
+        let filePath = folderPath + '\\' + filesList[i]; // ファイルパスの復元
+        addMedia(filePath, files);
       }
     });
   }
 });
 
 /* filePath内i番目のファイルをエレメントに追加 */
-function addMedia(filePath, i){
+function addMedia(filePath, files){
   let MediaElem = document.createElement('video');
   MediaElem.src = filePath;
 
   /* 1つ目のvideoにfocusMediaクラスを追加 */
-  if(i === 0){
+  if(files[0].path == filePath){
     MediaElem.setAttribute('class', 'focusMedia');
     mediaTitle.innerText = path.basename(filePath);
   }
+
   mediaList.appendChild(MediaElem);
 }
 
