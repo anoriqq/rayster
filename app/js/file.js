@@ -27,13 +27,13 @@ mediaFileInput.addEventListener('change', function(e){
 
   /* 選択ファイルが複数のときは選択分をリストに追加､単数のときはディレクトリ内のメディアを追加､選択されていないときはスルーする */
   if(filesLength > 1){
-    toggleFocusVideo();
+    toggleFocusMedia();
     for(let i=0;i<filesLength;i++){
       let filePath = files[i].path;
       addMedia(filePath, i);
     }
   }else{
-    toggleFocusVideo();
+    toggleFocusMedia();
     folderPath = path.dirname(files[0].path);
     fs.readdir(folderPath, function(err, files){
       filesLength = files.length;
@@ -47,20 +47,20 @@ mediaFileInput.addEventListener('change', function(e){
 
 /* filePath内i番目のファイルをエレメントに追加 */
 function addMedia(filePath, i){
-  let videoElem = document.createElement('video');
-  videoElem.src = filePath;
+  let MediaElem = document.createElement('video');
+  MediaElem.src = filePath;
 
   /* 1つ目のvideoにfocusMediaクラスを追加 */
   if(i === 0){
-    videoElem.setAttribute('class', 'focusMedia');
+    MediaElem.setAttribute('class', 'focusMedia');
     mediaTitle.innerText = path.basename(filePath);
   }
-  mediaList.appendChild(videoElem);
+  mediaList.appendChild(MediaElem);
 }
 
 /* focusMediaクラスがついたvideoタグからfocusMediaクラスを削除する関数 */
 let focusMedias = null;
-function toggleFocusVideo(){
+function toggleFocusMedia(){
   focusMedias = mediaList.getElementsByClassName('focusMedia');
   if(focusMedias.length !== 0){
     focusMedias[0].classList.remove('focusMedia');
