@@ -34,7 +34,7 @@ mediaFileInput.addEventListener('change', function(e){
       let filePath = files[i].path;
       addMedia(filePath, files);
     }
-  }else{
+  }else if(filesLength === 1){
     toggleFocusMedia();
     folderPath = path.dirname(files[0].path);
     fs.readdir(folderPath, function(err, filesList){
