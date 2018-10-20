@@ -33,6 +33,7 @@ html, body, #app-mount{
 #mediaList{
   height: calc(100% - 22px);
   width: 100%;
+  display: flex;
 }
 .media{
   height: 100%;
@@ -40,6 +41,23 @@ html, body, #app-mount{
   object-fit: contain;
   display: none;
   opacity: .2;
+  transition: opacity .2s , display 0s .5s;
+}
+.media.listView{
+  height: 10%;
+  width: 10%;
+  opacity: .6;
+  display: block;
+}
+.media.listView.focusMedia{
+  height: 40%;
+  width: 40%;
+  opacity: 1;
+  display: block;
+}
+.focusMedia{
+  opacity: 1;
+  display: block;
   transition: opacity .2s , display 0s .5s;
 }
 #mediaFileInput{
@@ -75,11 +93,6 @@ p{
 }
 #next{
   right: 0;
-}
-.focusMedia{
-  opacity: 1;
-  display: inline;
-  transition: opacity .2s , display 0s .5s;
 }
 .mediaTitle{
   height: 50px;
