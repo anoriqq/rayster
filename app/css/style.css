@@ -50,15 +50,55 @@ html, body, #app-mount{
   width: 15%;
   opacity: .8;
   display: block;
+  float: right;
+  border: 3px solid white;
+  z-index: 5;
 }
 .media.listView.focusMedia{
-  height: 80%;
-  width: 80%;
+  height: 75%;
+  width: 75%;
   opacity: 1;
   display: block;
   position: absolute;
   bottom: 0;
-  left: 10%;
+  left: 12.5%;
+  border: none;
+}
+.media.listView.LVN_1{
+  position: absolute;
+  top: 30px;
+  left: 0%;
+  z-index: 1;
+}
+.media.listView.LVN_2{
+  position: absolute;
+  top: 40px;
+  left: 13%;
+  z-index: 2;
+}
+.media.listView.LVN_3{
+  position: absolute;
+  top: 50px;
+  left: 26%;
+  z-index: 3;
+}
+.media.listView.LVN_5{
+  position: absolute;
+  top: 50px;
+  right: 26%;
+  z-index: 3;
+}
+.media.listView.LVN_6{
+  position: absolute;
+  top: 40px;
+  right: 13%;
+  z-index: 2;
+}
+.media.listView.LVN_7{
+  position: absolute;
+  top: 30px;
+  right: 0%;
+  z-index: 1;
 }
 #mediaFileInput{
   display: none;
@@ -103,4 +143,5 @@ p{
   top: 22px;
   left: 0;
   cursor: pointer;
+  z-index: 999;
 }

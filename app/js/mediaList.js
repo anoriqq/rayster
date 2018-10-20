@@ -55,17 +55,27 @@ for(let i=0;i<mediaChangeButton.length;i++){
 let regexp = /.*focusMedia.*/;
 function changeMediaView(){
   let changeStartNumber = 0;
+  let ListViewNumber = 0;
   for(let i=0;i<medias.length;i++){
     if(regexp.test(medias[i].classList.value)){
       changeStartNumber = i-3;
       break;
     }
   }
+  let ListViewNumberSetFlag = false;
   for(let i=0;i<medias.length;i++){
     if(i >= changeStartNumber && i < changeStartNumber+7){
       medias[i].classList.add('listView');
+      if(changeStartNumber<0 && !ListViewNumberSetFlag){
+        ListViewNumber = changeStartNumber*-1;
+        ListViewNumberSetFlag = true;
+      }
+      ListViewNumber++;
+      removeListViewNumber(i);
+      medias[i].classList.add(`LVN_${ListViewNumber}`);
     }else{
       medias[i].classList.remove('listView');
+      removeListViewNumber(i);
     }
   }
 }
@@ -79,5 +89,13 @@ function getElemClass(className){
 function unListView(){
   for(let i=0;i<medias.length;i++){
     medias[i].classList.remove('listView');
+    removeListViewNumber(i);
+  }
+}
+
+/* リストビューナンバークラスを削除する関数 */
+function removeListViewNumber(i){
+  for(let j=1;j<=7;j++){
+    medias[i].classList.remove(`LVN_${j}`);
   }
 }
