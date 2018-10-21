@@ -145,3 +145,12 @@ p{
   cursor: pointer;
   z-index: 999;
 }
+.operationBoard{
+  height: 50px;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, 0));
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+}
